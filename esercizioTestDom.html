@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- Ex 1
+Creare 3 campi input:
+- il primo, stabilisce un colore di sfondo
+- il secondo, stabilisce un colore di testo
+- il terzo, stabilisce un contenuto
+e un pulsante con testo "crea".
+Al click sul pulsante, viene creato un div 200px x 200px che avrà sfondo, colore del testo e
+contenuto dettati dagli input digitati, come sopra descritto.
+Ogni volta che viene premuto il pulsante "crea" l'elemento creato viene aggiunto al precedente. -->
+    <div class="flex justify-center items-center">
+        <input type="text" id="sfondoInput" placeholder="Colore di sfondo">
+        <input type="text" id="testoInput" placeholder="Colore del testo">
+        <input type="text" id="contenutoInput" placeholder="Contenuto">
+        <button class=" bg-green-400 w-20 h-10 rounded-md" id="creaButton">Crea</button>
+    </div>
+
+    <div class="flex justify-center items-center" id="container"></div>
+
+    <script>
+        const creaButton = document.getElementById("creaButton");
+
+        creaButton.addEventListener("click", function () {
+            const sfondo = document.getElementById("sfondoInput").value;
+            const testo = document.getElementById("testoInput").value;
+            const contenuto = document.getElementById("contenutoInput").value;
+
+            const div = document.createElement("div");
+            div.style.width = "200px";
+            div.style.height = "200px";
+            div.style.background = sfondo;
+            div.style.color = testo;
+            div.textContent = contenuto;
+            
+
+            document.getElementById("container").appendChild(div);
+        });
+    </script>
+</body>
+
+</html>
